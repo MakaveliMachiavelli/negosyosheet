@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sari-Sari Store Inventory at Utang Tracking: Simpleng Sistema na Gumagana — NegosyoSheet</title>
+<meta name="description" content="Paano hawakan ang inventory at utang ng sari-sari store o online reseller: ang simpleng sistema (daily count, utang list, profit tracking) na hindi ka gagastos ng libo — kasama ang libreng template.">
+<link rel="canonical" href="https://makavelimachiavelli.github.io/negosyosheet/sari-sari-inventory-guide.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23b45309'/%3E%3Ctext x='32' y='42' font-size='30' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3E%F0%9F%93%A6%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+<style>
+.article{max-width:780px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:14px;padding:2rem}
+.article h1{font-size:1.7rem;letter-spacing:-.02em;margin:.2rem 0 .6rem}
+.article h2{font-size:1.15rem;margin:1.6rem 0 .5rem}
+.article p,.article li{color:#344054;font-size:.95rem;line-height:1.65}
+.article table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.8rem 0}
+.article th{background:#fdeede;color:#92400e;text-align:left;padding:.45rem}
+.article td{border-bottom:1px solid var(--line);padding:.45rem}
+.callout{background:#fdf4e7;border-radius:10px;padding:.9rem 1.1rem;margin:1rem 0;font-size:.92rem}
+.article a{color:#b45309}
+.crumb{max-width:780px;margin:1rem auto 0;font-size:.8rem;color:var(--muted)}
+.crumb a{color:#b45309;text-decoration:none}
+@media(max-width:700px){.article{padding:1.2rem}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">Negosyo<span>Sheet</span></div>
+  <nav><a href="./index.html">← NegosyoSheet</a></nav>
+</header>
+<div class="crumb"><a href="./index.html">NegosyoSheet</a> │ sari-sari inventory guide</div>
+<main class="article wrap" style="padding:1.2rem">
+<h1>Sari-sari store inventory at utang: ang sistemang hindi ka malulugi</h1>
+<p>Totoo ang sabi ng mga matatanda: <strong>"hindi nauubos ang paninda, nauubos ang kita."</strong> Kadalasan hindi magnanakaw ang kalaban — kundi ang walang sistema: hindi nababantayang mababa na ang stock, nakalimutang mga utang, at hindi alam kung magkita talaga ang tindahan. Hetong tatlong hakbang, iwanan mo na ang notebook-with-crossed-out-lines na buhay.</p>
+
+<h2>1. Ang daily count na kayang gawin ng kahit sino</h2>
+<p>Hindi kailangan bawat araw, buong istock. Ang totoong sistema: <strong>binabantayan mo lang ang 20% ng items na 80% ng benta mo</strong> (mga sikat na pancit, softdrinks, sigarilyo, load). Listahan mo sila, at ang bawat isa may <strong>reorder point</strong> — yung bilang na kapag umabot na, "pumupunta ka na ng divisoria o supplier." Halimbawa:</p>
+<table>
+<tr><th>Item</th><th>Stock ngayon</th><th>Reorder point</th><th>Status</th></tr>
+<tr><td>Noka Noodles</td><td>36 pc</td><td>12</td><td>✅ OK pa</td></tr>
+<tr><td>Softdrinks 1L</td><td>4 btl</td><td>6</td><td>⚠️ REORDER NA!</td></tr>
+<tr><td>Sabon 60g</td><td>22</td><td>10</td><td>✅ OK pa</td></tr>
+</table>
+<p>Angalamat na "parang kulang na yung___"? Wala na. Kita mo agad ang pula.</p>
+
+<h2>2. Ang utang list na kinokolekta bago lumaki</h2>
+<p>Ang utang ay hindi masama — ang <strong>nakalimutang utang</strong> ang masama. Isang listahan lang: sino, magkano, kailang due. At ang pinaka-importante: <strong>tignan tuwing linggo</strong>. Ang mga libo-libong nawawala sa maliit na negosyo, halos lahat galing dito — ₱50 dito, ₱200 doon, tapos isang taon na ang lumipas.</p>
+<p>Praktikal na rules na gumagana sa tunay na buhay:</p>
+<ul>
+<li><strong>Maglagay ng due date kahit pa sabihin ng suki na "bayaran kita pag-sweldo."</strong> Kung hindi bayad by due date + 7 days, tama lang makinig sa isip mo na magsalita.</li>
+<li><strong>Isang bukas na utang bago muling pautang.</strong> Hindi ka masasaktan masyado, at madalas ang suking may balanced pa ay mas mabilis magbayad.</li>
+<li><strong>I-log ang bayad</strong> — kahit partial. Ang "nagbayad na ako nyan!" ay natatalo ng may record.</li>
+</ul>
+
+<h2>3. Ang profit computation na nagpapakita ng totoo</h2>
+<p>Ang pinakamalaking sekreto ng maliit na negosyo: <strong>ang kita ay hindi sales.</strong> Ang kita = benta − cost ng nabentang paninda − gastos (kuryente, load, upa). Kung ₱1,500 ang benta ngayon pero ₱1,200 ang cost ng paninda at ₱150 kuryente, kumita ka ng ₱150 — hindi ₱1,500. Simple, pero 90% ng tindahan, ito ang hindi nabibili kaya hindi alam kung talo o panalo.</p>
+<div class="callout">📊 <strong>Gawin mong automatic:</strong> ang <a href="./index.html">NegosyoSheet</a> (₱149 one-time) ay nagko-compute ng stock value, REORDER alerts, utang na may "KULIKAHIN NA!" alert, at profit dashboard — sa Excel o Google Sheets. May libreng demo.</div>
+
+<h2>Ang simpleng lingguhang routine (15 minuto/langgo)</h2>
+<ul>
+<li><strong>Linggo:</strong> bilugin ang 20% ng mga fast-moving items. Anong below reorder point? Order list na.</li>
+<li><strong>Linggo din:</strong> buksan ang utang list. Sino ang due? Text/call. Hindi na kailangan mahiya — may record ka.</li>
+<li><strong>Buwanan:</strong> tignan ang dashboard: magkita ang buwan? Anong items ang malaki tulong? Alin ang patay (itigil ang reorder, i-rotate ang pondo)</li>
+</ul>
+
+<h2>Kung bakit hindi gumagana ang karamihan sa "system"</h2>
+<ul>
+<li><strong>Nakasulat sa notebook, walang total.</strong> May listahan pero walang computation — pareho lang din walang sistema.</li>
+<li><strong>Ang POS app, sobrang bigat.</strong> Kailangan ng wifi, gadget, ₱1,000+/buwan. Para sa ₱30k/buwan na tindahan, ang spreadsheet na sarili mo ay tama ang laki.</li>
+<li><strong>Nakalimutan ang sariling system pag abot ng Pebrero.</strong> Ang daling gawin ay daling ituloy — kaya ang 15-minutes-per-week rule, hindi 2 hours a day.</li>
+</ul>
+
+<p style="margin-top:1.5rem">🔗 <a href="./index.html">Kunin ang NegosyoSheet (may libreng demo) →</a> · Para sa mga nagre-resell online: <a href="https://makavelimachiavelli.github.io/sellerprice/">SellerPrice — tama ang presyo benta sa Shopee/Lazada</a> · Landlord ka? <a href="https://makavelimachiavelli.github.io/rentsheet/">RentSheet</a></p>
+</main>
+<footer class="site-footer"><p>NegosyoSheet guide · para sa sari-sari store, reseller, at maliliit na negosyo</p></footer>
+</body>
+</html>
