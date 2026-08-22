@@ -21,9 +21,9 @@ def check(name, cond):
     else: bad += 1; print(f"  ✗ FAIL: {name}")
 
 # INVENTORY samples: Noka 48-12=36 stock, value 36×12=432; Softdrinks 24-5=19, value 19×68=1292
-check("Noka current stock = 36", get("INVENTORY", "G2") == 36)
-check("Noka stock value = 432", get("INVENTORY", "H2") == 432)
-check("Softdrinks stock value = 1292", get("INVENTORY", "H3") == 1292)
+check("Noka current stock = 45 (48 in − 3 auto from sales)", get("INVENTORY", "G2") == 45)
+check("Noka stock value = 540", get("INVENTORY", "H2") == 540)
+check("Softdrinks stock value = 1564", get("INVENTORY", "H3") == 1564)
 # Noka reorder: 36 > 12 → OK; Sabon: 30-8=22 > 10 → OK; make a reorder case? sample3 reorder=10, stock=22 → OK
 check("Noka status OK", get("INVENTORY", "J2") == "OK")
 
@@ -38,9 +38,12 @@ check("Softdrinks profit = 22", get("SALES LOG", "G3") == 22)
 check("dashboard total sales = 144", get("DASHBOARD", "B6") == 144)
 check("dashboard gross profit = 40", get("DASHBOARD", "E6") == 40)
 check("dashboard net = 40", get("DASHBOARD", "E9") == 40)
-check("dashboard inventory value = 432+1292+484", abs(get("DASHBOARD", "B12") - (432+1292+ (30-8)*22)) < 0.001)
+check("dashboard inventory value = 540+1564+660", abs(get("DASHBOARD", "B12") - (540+1564+660)) < 0.001)
 check("dashboard utang unpaid = 0", get("DASHBOARD", "E12") == 0)
 check("dashboard reorder count = 0", get("DASHBOARD", "B15") == 0)
+check("GCash fee income card = 0 (empty ledger)", get("DASHBOARD", "B18") == 0)
+check("today sales card = 144 (samples dated today)", get("DASHBOARD", "E18") == 144)
+check("MTD sales card = 144", get("DASHBOARD", "B21") == 144)
 
 print(f"\nRESULT: {ok} passed, {bad} failed")
 raise SystemExit(1 if bad else 0)

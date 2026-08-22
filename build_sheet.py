@@ -52,6 +52,8 @@ rows = [
     ("li", "• SALES LOG — bawat sale. Auto: unit price (galing Inventory), total, cost, profit."),
     ("li", "• UTANG — listahan ng mga utang. Auto: days overdue at KULIKAHIN NA! alert."),
     ("li", "• EXPENSES — kuryente, upa, load, at iba. Ibaon sa DASHBOARD computation."),
+    ("li", "• GCASH & LOAD — cash-in/out, e-load, bills payment logs + kita sa fees."),
+    ("li", "• Stock out ay AUTO na galing SALES LOG — isang log lang, walang doble!"),
     ("blank", ""),
     ("h", "IMPORTANTE:"),
     ("li", "• Wag i-edit ang mga may formula (kulay grey). Type lang sa white cells."),
@@ -76,15 +78,17 @@ N_ROWS = 5 if MODE == "demo" else 200  # data rows per sheet
 
 # ================= INVENTORY =================
 ws = wb.create_sheet("INVENTORY")
-headers = ["Item Name", "Unit", "Cost (₱)", "Selling Price (₱)", "Stock In", "Stock Out", "Current Stock", "Stock Value (₱)", "Reorder Point", "Status"]
+headers = ["Item Name", "Unit", "Cost (₱)", "Selling Price (₱)", "Stock In", "Stock Out (auto)", "Current Stock", "Stock Value (₱)", "Reorder Point", "Status"]
 for i, h in enumerate(headers, 1): ws.cell(row=1, column=i, value=h)
 style_header(ws, 1, range(1, len(headers)+1))
 widths = [26, 8, 12, 16, 10, 11, 13, 15, 13, 16]
 for i, w in enumerate(widths, 1): ws.column_dimensions[get_column_letter(i)].width = w
-sample = [("Noka Noodles", "pc", 12, 18, 48, 12, 12), ("Softdrinks 1L", "btl", 68, 90, 24, 5, 6), ("Sabon 60g", "pc", 22, 35, 30, 8, 10)]
+sample = [("Noka Noodles", "pc", 12, 18, 48, 12), ("Softdrinks 1L", "btl", 68, 90, 24, 6), ("Sabon 60g", "pc", 22, 35, 30, 10)]
 for j, s in enumerate(sample if MODE == "demo" else sample, start=2):
     for i, v in enumerate(s, 1): ws.cell(row=j, column=i, value=v)
 for r in range(2, N_ROWS + 2):
+    # Stock Out auto-computed from SALES LOG — one entry point, no double-logging
+    ws.cell(row=r, column=6, value=f"=IF(A{r}=\"\",\"\",SUMIF('SALES LOG'!B:B,A{r},'SALES LOG'!C:C))")
     ws.cell(row=r, column=7, value=f"=IF(A{r}=\"\",\"\",E{r}-F{r})")
     ws.cell(row=r, column=8, value=f"=IF(A{r}=\"\",\"\",G{r}*C{r})")
     ws.cell(row=r, column=10, value=f'=IF(A{r}="","",IF(G{r}<=I{r},"⚠️ REORDER NA!","OK"))')
@@ -100,26 +104,28 @@ ws.conditional_formatting.add(f"J2:J{N_ROWS+1}",
 
 # ================= SALES LOG =================
 ws = wb.create_sheet("SALES LOG")
-headers = ["Date", "Item Name", "Qty", "Unit Price (₱)", "Total (₱)", "Cost (₱)", "Profit (₱)"]
+headers = ["Date", "Item Name", "Qty", "Unit Price (₱)", "Total (₱)", "Cost (₱)", "Profit (₱)", "Payment"]
 for i, h in enumerate(headers, 1): ws.cell(row=1, column=i, value=h)
 style_header(ws, 1, range(1, len(headers)+1))
-for i, w in enumerate([12, 26, 8, 14, 13, 12, 13], 1): ws.column_dimensions[get_column_letter(i)].width = w
+for i, w in enumerate([12, 26, 8, 14, 13, 12, 13, 10], 1): ws.column_dimensions[get_column_letter(i)].width = w
 today = datetime.date.today().isoformat()
 for r in range(2, N_ROWS + 2):
     ws.cell(row=r, column=4, value=f'=IF(OR(B{r}="",C{r}=""),"",IFERROR(VLOOKUP(B{r},INVENTORY!A:D,4,FALSE),""))')
     ws.cell(row=r, column=5, value=f'=IF(OR(B{r}="",C{r}=""),"",D{r}*C{r})')
     ws.cell(row=r, column=6, value=f'=IF(OR(B{r}="",C{r}=""),"",IFERROR(VLOOKUP(B{r},INVENTORY!A:C,3,FALSE),"")*C{r})')
     ws.cell(row=r, column=7, value=f'=IF(OR(B{r}="",C{r}=""),"",E{r}-F{r})')
-    for c in range(1, 8):
+    for c in range(1, 9):
         cell = ws.cell(row=r, column=c); cell.border = THIN
         if c in (4, 5, 6, 7): cell.number_format = MONEY
         if c == 1: cell.number_format = DATEF
 for j, (d, it, q) in enumerate([(today, "Noka Noodles", 3), (today, "Softdrinks 1L", 1)], start=2):
     ws.cell(row=j, column=1, value=d); ws.cell(row=j, column=2, value=it); ws.cell(row=j, column=3, value=q)
 ws.freeze_panes = "A2"
-ws.auto_filter.ref = f"A1:G{N_ROWS+1}"
+ws.auto_filter.ref = f"A1:H{N_ROWS+1}"
 dv = DataValidation(type="list", formula1=f"=INVENTORY!$A$2:$A${N_ROWS+1}", allow_blank=True, showDropDown=False)
 ws.add_data_validation(dv); dv.add(f"B2:B{N_ROWS+1}")
+dvPay = DataValidation(type="list", formula1='"Cash,GCash,Utang"', allow_blank=True, showDropDown=False)
+ws.add_data_validation(dvPay); dvPay.add(f"H2:H{N_ROWS+1}")
 ws.conditional_formatting.add(f"G2:G{N_ROWS+1}",
     CellIsRule(operator="lessThan", formula=["0"], font=Font(color="DC2626", bold=True)))
 
@@ -157,6 +163,22 @@ for r in range(2, N_ROWS + 2):
         if c == 1: cell.number_format = DATEF
 ws.freeze_panes = "A2"; ws.auto_filter.ref = f"A1:D{N_ROWS+1}"
 
+
+# ================= GCASH & LOAD =================
+ws = wb.create_sheet("GCASH & LOAD")
+headers = ["Date", "Type", "Amount (₱)", "Fee Collected (₱)", "Customer / Ref No."]
+for i, h in enumerate(headers, 1): ws.cell(row=1, column=i, value=h)
+style_header(ws, 1, range(1, len(headers)+1))
+for i, w in enumerate([12, 16, 14, 16, 22], 1): ws.column_dimensions[get_column_letter(i)].width = w
+dvG = DataValidation(type="list", formula1='"Cash-In,Cash-Out,E-Load,Bills Payment"', allow_blank=True, showDropDown=False)
+ws.add_data_validation(dvG); dvG.add(f"B2:B{N_ROWS+1}")
+for r in range(2, N_ROWS + 2):
+    for c in range(1, 6):
+        cell = ws.cell(row=r, column=c); cell.border = THIN
+        if c in (3, 4): cell.number_format = MONEY
+        if c == 1: cell.number_format = DATEF
+ws.freeze_panes = "A2"; ws.auto_filter.ref = f"A1:E{N_ROWS+1}"
+
 # ================= DASHBOARD =================
 ws = wb.create_sheet("DASHBOARD", 0)  # first sheet
 ws.sheet_view.showGridLines = False
@@ -181,24 +203,27 @@ def card(ws, row, col, label, formula, fmt='#,##0.00', fill="F6F8FB"):
 card(ws, 5, 2, "TOTAL SALES (₱)", f"=SUM('SALES LOG'!E2:E{last})")
 card(ws, 5, 5, "TOTAL GROSS PROFIT (₱)", f"=SUM('SALES LOG'!G2:G{last})")
 card(ws, 8, 2, "TOTAL EXPENSES (₱)", f"=SUM(EXPENSES!D2:D{last})")
-card(ws, 8, 5, "NET (profit − expenses) (₱)", f"=SUM('SALES LOG'!G2:G{last})-SUM(EXPENSES!D2:D{last})")
+card(ws, 8, 5, "NET (profit + gcash fees − expenses) (₱)", f"=SUM('SALES LOG'!G2:G{last})+SUM('GCASH & LOAD'!D2:D{last})-SUM(EXPENSES!D2:D{last})")
 card(ws, 11, 2, "INVENTORY VALUE (₱)", f"=SUM(INVENTORY!H2:H{last})")
 card(ws, 11, 5, "UTANG NA HINDI PAID (₱)", f'=SUMIFS(UTANG!D2:D{last},UTANG!F2:F{last},"<>Yes",UTANG!A2:A{last},"<>")')
 card(ws, 14, 2, "ITEMS NA REORDER NA", f'=COUNTIF(INVENTORY!J2:J{last},"⚠️ REORDER NA!")', fmt='0', fill="FEF7E6")
 card(ws, 14, 5, "MGA UTANG NA LATE", f'=COUNTIF(UTANG!H2:H{last},"🔴 KULIKAHIN NA!")', fmt='0', fill="FEF7E6")
+card(ws, 17, 2, "GCASH/LOAD KITA (fees)", f"=SUM('GCASH & LOAD'!D2:D{last})", fill="E9F9F1")
+card(ws, 17, 5, "BENTA NGAYONG ARAW", f'=SUMIF(\'SALES LOG\'!A2:A{last},TODAY(),\'SALES LOG\'!E2:E{last})', fill="E9F9F1")
+card(ws, 20, 2, "BENTA NGAYONG BUWAN (MTD)", f"=SUMIFS(\'SALES LOG\'!E2:E{last},\'SALES LOG\'!A2:A{last},\">=\"&DATE(YEAR(TODAY()),MONTH(TODAY()),1),\'SALES LOG\'!A2:A{last},\"<\"&DATE(YEAR(TODAY()),MONTH(TODAY())+1,1))", fill="E9F9F1")
 
-ws.cell(row=17, column=2, value="TOTAL PER ITEM (sales):").font = Font(bold=True, size=11)
-ws.cell(row=17, column=5, value="TOP BUYERS (utang):").font = Font(bold=True, size=11)
-ws.cell(row=18, column=2, value="Item").font = Font(bold=True, size=9, color=GREY)
-ws.cell(row=18, column=3, value="Sales (₱)").font = Font(bold=True, size=9, color=GREY)
+ws.cell(row=24, column=2, value="TOTAL PER ITEM (sales):").font = Font(bold=True, size=11)
+ws.cell(row=24, column=5, value="TOP BUYERS (utang):").font = Font(bold=True, size=11)
+ws.cell(row=25, column=2, value="Item").font = Font(bold=True, size=9, color=GREY)
+ws.cell(row=25, column=3, value="Sales (₱)").font = Font(bold=True, size=9, color=GREY)
 for r in range(2, min(12, N_ROWS+1)):
-    rr = 17 + r - 1
+    rr = 24 + r - 1
     ws.cell(row=rr+1, column=2, value=f"=IF(INVENTORY!A{r}=\"\",\"\",INVENTORY!A{r})").font = Font(size=10)
     c = ws.cell(row=rr+1, column=3, value=f"=IF(INVENTORY!A{r}=\"\",\"\",SUMIF('SALES LOG'!B:B,INVENTORY!A{r},'SALES LOG'!E:E))")
     c.number_format = MONEY; c.font = Font(size=10)
 
 if MODE == "demo":
-    ws.cell(row=30, column=2, value="DEMO VERSION — 5 rows lang ang pwede. Full version: unlimited rows + free updates.").font = Font(bold=True, color="DC2626")
+    ws.cell(row=38, column=2, value="DEMO VERSION — 5 rows lang ang pwede. Full version: unlimited rows + free updates.").font = Font(bold=True, color="DC2626")
 
 out = os.path.join(DIST, "NegosyoSheet.xlsx" if MODE == "full" else "NegosyoSheet-Demo.xlsx")
 wb.save(out)
