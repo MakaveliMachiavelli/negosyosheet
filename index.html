@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NegosyoSheet — Inventory, Utang at Profit Tracker para sa Sari-Sari Store & Reseller (₱149)</title>
+<link rel="manifest" href="manifest.json">
 <meta name="description" content="Excel/Google Sheets tracker para sa sari-sari store at online reseller: automatic stock, REORDER alerts, utang listahan (may KULIKAHIN NA alert), at profit dashboard. One-time ₱149 lang — hindi subscription.">
 <meta property="og:title" content="NegosyoSheet — Sari-Sari Store Inventory Tracker">
 <meta property="og:description" content="Free sari-sari store inventory + profit tracker spreadsheet: auto stock-out from sales, GCash ledger, utang tracking. ₱149 full version.">
@@ -151,5 +152,11 @@
 </div>
 
 <script src="app.js"></script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js').catch(() => {});
+}
+</script>
 </body>
 </html>
