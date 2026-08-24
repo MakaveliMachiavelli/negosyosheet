@@ -1,121 +1,125 @@
 <!DOCTYPE html>
-<html data-theme="negosyosheet" lang="tl">
+<html data-theme="negosyosheet" lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NegosyoSheet — Inventory, Utang at Profit Tracker para sa Sari-Sari Store & Reseller (₱149)</title>
-<meta name="description" content="Excel/Google Sheets tracker para sa sari-sari store at online reseller: automatic stock, REORDER alerts, utang listahan (may KULIKAHIN NA alert), at profit dashboard. One-time ₱149 lang — hindi subscription.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23b45309'/%3E%3Ctext x='32' y='42' font-size='30' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3E₱%3C/text%3E%3C/svg%3E">
-<link rel="stylesheet" <link rel="stylesheet" href="https://makavelimachiavelli.github.io/zinvent-design-system/tokens.css">
-    <link rel="stylesheet" href="https://makavelimachiavelli.github.io/zinvent-design-system/components/base.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NegosyoSheet — Sari-Sari Store & Small Business Tracker</title>
+  <meta name="description" content="Track daily sales, expenses, inventory, and profit for your sari-sari store or carinderia. Free, offline-first, Tagalog/English.">
+  <link rel="canonical" href="https://makavelimachiavelli.github.io/negosyosheet/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231f4d2e'/%3E%3Ctext x='32' y='44' font-size='32' text-anchor='middle' fill='%23c8d9a3' font-family='Georgia' font-weight='bold'%3E₱%3C/text%3E%3C/svg%3E">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Zinvent Design System -->
+  <link rel="stylesheet" href="https://makavelimachiavelli.github.io/zinvent-design-system/tokens.css">
+  <link rel="stylesheet" href="https://makavelimachiavelli.github.io/zinvent-design-system/components/base.css">
   <!-- Zinvent Analytics (privacy-first, no cookies) -->
   <script src="https://makavelimachiavelli.github.io/zinvent-design-system/components/analytics.js"></script>
   <!-- Zinvent Payments (GCash + LemonSqueezy, affiliate, email capture) -->
   <script src="https://makavelimachiavelli.github.io/zinvent-design-system/components/payments.js"></script>
-    <link rel="stylesheet" href="style.css">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "NegosyoSheet — Inventory, Utang at Profit Tracker",
-  "description": "Excel/Google Sheets tracker para sa sari-sari store at online resellers. Automatic inventory, reorder alerts, utang tracking, at profit dashboard.",
-  "offers": {"@type": "Offer", "price": "149", "priceCurrency": "PHP"}
-}
-</script>
+  <!-- Product Styles -->
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"NegosyoSheet","applicationCategory":"BusinessApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"PHP"},"description":"Free daily sales & expense tracker for sari-sari stores."}
+  </script>
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to main content</a>>
-
-<header class="site-header">
-  <div class="brand">Negosyo<span>Sheet</span></div>
-  <nav>
-    <a href="#paano">Paano gumagana</a>
-    <button id="proBtn" class="btn-link">Kunin — ₱149</button>
-  </nav>
-</header>
-
-<main class="wrap">
-  <section class="hero">
-    <h1>Magkita talaga ba ang negosyo mo?<br><span class="hl">Alamin sa isang tingin.</span></h1>
-    <p class="sub">Ang <strong>NegosyoSheet</strong> ang attendance-talaan ng negosyo mo: <strong>automatic stock count</strong>, <strong>REORDER alerts</strong>, <strong>utang listahan</strong> (may "KULIKAHIN NA!" reminder), at <strong>profit dashboard</strong> — sa Excel o Google Sheets. Libreng demo sa baba.</p>
-    <div class="hero-chips">
-      <span>✓ Works sa Excel &amp; Google Sheets</span>
-      <span>✓ Automatic lahat ng computation</span>
-      <span>✓ ₱149 one-time, hindi subscription</span>
-      <span>✓ Taglish instructions</span>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <header class="z-header" role="banner">
+    <div class="z-header-inner">
+      <div class="z-brand"><span class="z-brand-mark">📓</span><span class="z-brand-name">NegosyoSheet</span></div>
+      <nav class="z-nav" role="navigation" aria-label="Main navigation">
+        <a href="#features">Features</a>
+        <a href="#demo">Demo</a>
+        <a href="#pro">PRO</a>
+        <a href="https://makavelimachiavelli.github.io/zinvent-hub/" class="z-btn z-btn-ghost z-btn-sm">All Tools</a>
+      </nav>
     </div>
-  </section>
+  </header>
+  <main id="main" role="main">
+    <section class="z-hero z-reveal">
+      <span class="z-hero-eyebrow">Sari-Sari & Carinderia Tracker</span>
+      <h1>Alamin kung kumikita ang negosyo mo.</h1>
+      <p>Daily sales, expenses, utang list, inventory — all in one sheet. Works offline. Tagalog + English. Free forever.</p>
+      <div class="z-hero-cta">
+        <button class="z-btn z-btn-primary z-btn-lg" data-action="open-sheet">Buksan ang Sheet</button>
+        <a href="#features" class="z-btn z-btn-ghost z-btn-lg">Features</a>
+      </div>
+      <div class="z-pills">
+        <span class="z-pill">Daily Sales</span>
+        <span class="z-pill">Expenses</span>
+        <span class="z-pill">Utang List</span>
+        <span class="z-pill">Inventory</span>
+      </div>
+    </section>
 
-  <section class="panel preview-panel">
-    <h2>Nakikita mo agad sa DASHBOARD:</h2>
-    <div class="dash-mock">
-      <div class="dm-card"><div class="dm-label">TOTAL SALES</div><div class="dm-val">₱24,380</div></div>
-      <div class="dm-card"><div class="dm-label">GROSS PROFIT</div><div class="dm-val">₱6,912</div></div>
-      <div class="dm-card"><div class="dm-label">NET (profit − gastos)</div><div class="dm-val">₱4,150</div></div>
-      <div class="dm-card"><div class="dm-label">INVENTORY VALUE</div><div class="dm-val">₱18,240</div></div>
-      <div class="dm-card warn"><div class="dm-label">ITEMS NA REORDER NA</div><div class="dm-val">3</div></div>
-      <div class="dm-card warn"><div class="dm-label">UTANG NA LATE</div><div class="dm-val">2</div></div>
-    </div>
-    <p class="hint">Bawat benta mo lang sa SALES LOG — lahat dito, auto-compute na. May dropdown pa ang items (kaya walang maling type).</p>
-  </section>
+    <section id="features" class="z-section z-reveal">
+      <div class="z-wrap">
+        <h2>Para sa tunay na negosyante</h2>
+        <div class="z-card-grid z-grid-3">
+          <article class="z-card">
+            <h3>Tala ng Benta</h3>
+            <p>Item, qty, price, total — auto-sum per day. Weekly/monthly trend.</p>
+          </article>
+          <article class="z-card">
+            <h3>Gastos & Utang</h3>
+            <p>Track suppliers, due dates, payments. Hindi na malilimot.</p>
+          </article>
+          <article class="z-card">
+            <h3>Inventaryo</h3>
+            <p>Stock in/out, reorder alerts, spoilage tracking. Perishables ready.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-  <section class="marketing" id="paano">
-    <h2>Ano ang nasa loob</h2>
-    <div class="cards">
-      <div class="card"><h3>📦 INVENTORY</h3><p>Listahan ng items na may automatic current stock, stock value, at <strong>"⚠️ REORDER NA!"</strong> na pula kapag malapos na. Kahit 200 items.</p></div>
-      <div class="card"><h3>💰 SALES LOG</h3><p>Isang row kada benta. Auto ang presyo (dropdown galing Inventory), total, cost, at <strong>profit per sale</strong>. Alam mo agad kung alin ang malaki ang kita.</p></div>
-      <div class="card"><h3>🧾 UTANG LIST</h3><p>Sino may utang, magkano, kailang due. May <strong>"🔴 KULIKAHIN NA!"</strong> alert kapag overdue na, at ✅ kapag bayad na. Kawalan ng kalimutan.</p></div>
-      <div class="card"><h3>⚡ EXPENSES + DASHBOARD</h3><p>Kuryente, upa, load — lahat ibinabawas sa profit. Ang DASHBOARD ang totoong kita ng negosyo, hindi guess-guess.</p></div>
-    </div>
+    <section id="demo" class="z-section z-reveal">
+      <div class="z-wrap">
+        <h2>Subukan nang libre</h2>
+        <div class="z-card" style="text-align:center;padding:var(--z-s6);">
+          <p style="color:var(--p-muted);margin-bottom:var(--z-s4);">Demo mode: all features, data clears on refresh.</p>
+          <button class="z-btn z-btn-primary z-btn-lg" data-action="open-demo">Try Demo Sheet</button>
+        </div>
+      </div>
+    </section>
 
-    <div class="cta-box">
-      <h2>Demo muna, o full version na?</h2>
-      <p class="once">Ang demo ay libre (5 rows lang). Ang full: 200 rows, unlimited updates, at suporta.</p>
-      <div class="cta-row">
-        <a class="btn big alt" href="NegosyoSheet-Demo.xlsx" download>⬇️ Libreng DEMO (xlsx)</a>
-        <button id="proBtn2" class="btn big primary">🛒 Full version — ₱149</button>
+    <section id="pro" class="z-section z-reveal">
+      <div class="z-wrap" style="text-align:center;">
+        <h2>Unlock PRO — ₱299 one-time</h2>
+        <p style="max-width:600px;margin:0 auto var(--z-s5);color:var(--p-muted);">Unlimited history, multi-device sync, supplier database, export to Excel/PDF, and backup reminders.</p>
+        <div class="z-qr" role="region" aria-label="GCash payment">
+          <img src="qr-gcash.svg" alt="GCash QR for NegosyoSheet PRO" loading="lazy">
+          <ol class="z-qr-steps">
+            <li><b>Scan QR</b> with GCash app</li>
+            <li><b>Pay ₱299</b> (one-time, no subscription)</li>
+            <li><b>Enter unlock code</b> received via SMS/email</li>
+          </ol>
+        </div>
+        <div class="z-code-row">
+          <input type="text" class="z-input" id="proCode" placeholder="Enter unlock code" style="flex:1;text-transform:uppercase;">
+          <button class="z-btn z-btn-accent" id="btnUnlock">Unlock PRO</button>
+        </div>
+        <p id="codeMsg" class="z-code-msg" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="z-section-sm z-reveal">
+      <div class="z-wrap" style="text-align:center;">
+        <p style="color:var(--p-muted);">Gawa ng <a href="https://makavelimachiavelli.github.io/zinvent-hub/">Zinvent</a> · Para sa Pinoy negosyante</p>
+      </div>
+    </section>
+  </main>
+  <footer class="z-footer" role="contentinfo">
+    <div class="z-wrap">
+      <p>&copy; 2025 NegosyoSheet · <a href="https://makavelimachiavelli.github.io/zinvent-hub/privacy.html">Privacy</a> · <a href="https://makavelimachiavelli.github.io/zinvent-hub/terms.html">Terms</a></p>
+      <div class="z-footer-links">
+        <a href="https://github.com/MakaveliMachiavelli/negosyosheet">GitHub</a>
+        <a href="mailto:support@zinvent.ph">Support</a>
+        <a href="https://makavelimachiavelli.github.io/zinvent-hub/">All Zinvent Tools</a>
       </div>
     </div>
-
-    <h2>Mga tanong</h2>
-    <div class="faq-item"><h3>Gumagawa ba ito sa Google Sheets?</h3><p>Oo! I-download, i-upload sa Google Drive, tapos "Open with Google Sheets". Lahat ng formula at dropdown gumagana.</p></div>
-    <div class="faq-item"><h3>Magaling ako sa Excel — ano ang mabibili ko dito?</h3><p>Oras. Isang gabi kung gagawin mo sarili mo — o ₱149 na lang. Naka-setup na ang formulas, alerts, dropdowns, at dashboard.</p></div>
-    <div class="faq-item"><h3>May subscription ba?</h3><p>Wala. One-time ₱149. Sahod mo iyon habambuhay.</p></div>
-    <div class="faq-item"><h3>Paano to bayaran?</h3><p>GCash. Scan, bayad ₱149, tapos ikaw agad ang download link ng full version.</p></div>
-  </section>
-  <section class="cross-sell" style="text-align:center;margin:2rem 0 0;"><p>🏠 Landlord? See <a href="https://makavelimachiavelli.github.io/rentsheet/">RentSheet — rental income &amp; expense tracker</a>. · <a href="https://makavelimachiavelli.github.io/">More zinvent tools</a>.</p></section>
-</main>
-
-<footer class="site-footer">
-  <p>NegosyoSheet — para sa sari-sari store, online reseller, at maliliit na negosyo. Ginawa ng <a href="https://makavelimachiavelli.github.io/">zinvent</a>. · <a href="sari-sari-inventory-guide.html">📖 Full guide</a></p>
-</footer>
-
-<!-- PAY MODAL -->
-<div id="payModal" class="modal hidden">
-  <div class="modal-card">
-    <button class="modal-x" id="payClose">✕</button>
-    <h2>Kunin ang Full Version</h2>
-    <p class="price">₱149 <span>one-time · habambuhay na sayo</span></p>
-    <div class="qr-box">
-      <img src="gcash-qr.svg" alt="GCash QR (replace with merchant QR)" width="180" height="180">
-      <ol class="pay-steps">
-        <li>Scan ang GCash QR, magpadala ng <strong>₱149</strong>.</li>
-        <li>I-enter ang unlock code na matatanggap mo.</li>
-        <li>Download agad ang full version!</li>
-      </ol>
-    </div>
-    <div class="code-row">
-      <input id="codeInput" placeholder="Enter unlock code">
-      <button id="codeBtn" class="btn primary">Unlock</button>
-    </div>
-    <p class="code-msg" id="codeMsg"></p>
-    <div id="dlBox" class="dl-box hidden">
-      <a id="dlLink" class="btn primary big" href="#">⬇️ I-download ang NegosyoSheet (full)</a>
-      <p class="hint">I-save agad — ang link na ito ay para sayo lang.</p>
-    </div>
-  </div>
-</div>
-
-<script src="app.js"></script>
+  </footer>
+  <script src="app.js"></script>
 </body>
 </html>
