@@ -1,6 +1,6 @@
 /* NegosyoSheet — styles */
 :root{
-  --amber:#b45309; --ink:#101828; --muted:#667085; --line:#e4e7ec;
+  --amber:#b45309; --ink:#101828; --muted:#3d4a5c; --line:#e4e7ec;
   --bg:#fdf9f2; --card:#fff; --red:#dc2626; --green:#0e9f6e;
 }
 *{box-sizing:border-box}
