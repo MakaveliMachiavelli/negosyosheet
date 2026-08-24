@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NegosyoSheet — Inventory, Utang at Profit Tracker para sa Sari-Sari Store & Reseller (₱149)</title>
+<meta name="description" content="Excel/Google Sheets tracker para sa sari-sari store at online reseller: automatic stock, REORDER alerts, utang listahan (may KULIKAHIN NA alert), at profit dashboard. One-time ₱149 lang — hindi subscription.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23b45309'/%3E%3Ctext x='32' y='42' font-size='30' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3E₱%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "NegosyoSheet — Inventory, Utang at Profit Tracker",
+  "description": "Excel/Google Sheets tracker para sa sari-sari store at online resellers. Automatic inventory, reorder alerts, utang tracking, at profit dashboard.",
+  "offers": {"@type": "Offer", "price": "149", "priceCurrency": "PHP"}
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="brand">Negosyo<span>Sheet</span></div>
+  <nav>
+    <a href="#paano">Paano gumagana</a>
+    <button id="proBtn" class="btn-link">Kunin — ₱149</button>
+  </nav>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>Magkita talaga ba ang negosyo mo?<br><span class="hl">Alamin sa isang tingin.</span></h1>
+    <p class="sub">Ang <strong>NegosyoSheet</strong> ang attendance-talaan ng negosyo mo: <strong>automatic stock count</strong>, <strong>REORDER alerts</strong>, <strong>utang listahan</strong> (may "KULIKAHIN NA!" reminder), at <strong>profit dashboard</strong> — sa Excel o Google Sheets. Libreng demo sa baba.</p>
+    <div class="hero-chips">
+      <span>✓ Works sa Excel &amp; Google Sheets</span>
+      <span>✓ Automatic lahat ng computation</span>
+      <span>✓ ₱149 one-time, hindi subscription</span>
+      <span>✓ Taglish instructions</span>
+    </div>
+  </section>
+
+  <section class="panel preview-panel">
+    <h2>Nakikita mo agad sa DASHBOARD:</h2>
+    <div class="dash-mock">
+      <div class="dm-card"><div class="dm-label">TOTAL SALES</div><div class="dm-val">₱24,380</div></div>
+      <div class="dm-card"><div class="dm-label">GROSS PROFIT</div><div class="dm-val">₱6,912</div></div>
+      <div class="dm-card"><div class="dm-label">NET (profit − gastos)</div><div class="dm-val">₱4,150</div></div>
+      <div class="dm-card"><div class="dm-label">INVENTORY VALUE</div><div class="dm-val">₱18,240</div></div>
+      <div class="dm-card warn"><div class="dm-label">ITEMS NA REORDER NA</div><div class="dm-val">3</div></div>
+      <div class="dm-card warn"><div class="dm-label">UTANG NA LATE</div><div class="dm-val">2</div></div>
+    </div>
+    <p class="hint">Bawat benta mo lang sa SALES LOG — lahat dito, auto-compute na. May dropdown pa ang items (kaya walang maling type).</p>
+  </section>
+
+  <section class="marketing" id="paano">
+    <h2>Ano ang nasa loob</h2>
+    <div class="cards">
+      <div class="card"><h3>📦 INVENTORY</h3><p>Listahan ng items na may automatic current stock, stock value, at <strong>"⚠️ REORDER NA!"</strong> na pula kapag malapos na. Kahit 200 items.</p></div>
+      <div class="card"><h3>💰 SALES LOG</h3><p>Isang row kada benta. Auto ang presyo (dropdown galing Inventory), total, cost, at <strong>profit per sale</strong>. Alam mo agad kung alin ang malaki ang kita.</p></div>
+      <div class="card"><h3>🧾 UTANG LIST</h3><p>Sino may utang, magkano, kailang due. May <strong>"🔴 KULIKAHIN NA!"</strong> alert kapag overdue na, at ✅ kapag bayad na. Kawalan ng kalimutan.</p></div>
+      <div class="card"><h3>⚡ EXPENSES + DASHBOARD</h3><p>Kuryente, upa, load — lahat ibinabawas sa profit. Ang DASHBOARD ang totoong kita ng negosyo, hindi guess-guess.</p></div>
+    </div>
+
+    <div class="cta-box">
+      <h2>Demo muna, o full version na?</h2>
+      <p class="once">Ang demo ay libre (5 rows lang). Ang full: 200 rows, unlimited updates, at suporta.</p>
+      <div class="cta-row">
+        <a class="btn big alt" href="NegosyoSheet-Demo.xlsx" download>⬇️ Libreng DEMO (xlsx)</a>
+        <button id="proBtn2" class="btn big primary">🛒 Full version — ₱149</button>
+      </div>
+    </div>
+
+    <h2>Mga tanong</h2>
+    <div class="faq-item"><h3>Gumagawa ba ito sa Google Sheets?</h3><p>Oo! I-download, i-upload sa Google Drive, tapos "Open with Google Sheets". Lahat ng formula at dropdown gumagana.</p></div>
+    <div class="faq-item"><h3>Magaling ako sa Excel — ano ang mabibili ko dito?</h3><p>Oras. Isang gabi kung gagawin mo sarili mo — o ₱149 na lang. Naka-setup na ang formulas, alerts, dropdowns, at dashboard.</p></div>
+    <div class="faq-item"><h3>May subscription ba?</h3><p>Wala. One-time ₱149. Sahod mo iyon habambuhay.</p></div>
+    <div class="faq-item"><h3>Paano to bayaran?</h3><p>GCash. Scan, bayad ₱149, tapos ikaw agad ang download link ng full version.</p></div>
+  </section>
+  <section class="cross-sell" style="text-align:center;margin:2rem 0 0;"><p>🏠 Landlord? See <a href="https://makavelimachiavelli.github.io/rentsheet/">RentSheet — rental income &amp; expense tracker</a>. · <a href="https://makavelimachiavelli.github.io/">More zinvent tools</a>.</p></section>
+</main>
+
+<footer class="site-footer">
+  <p>NegosyoSheet — para sa sari-sari store, online reseller, at maliliit na negosyo. Ginawa ng <a href="https://makavelimachiavelli.github.io/">zinvent</a>. · <a href="sari-sari-inventory-guide.html">📖 Full guide</a></p>
+</footer>
+
+<!-- PAY MODAL -->
+<div id="payModal" class="modal hidden">
+  <div class="modal-card">
+    <button class="modal-x" id="payClose">✕</button>
+    <h2>Kunin ang Full Version</h2>
+    <p class="price">₱149 <span>one-time · habambuhay na sayo</span></p>
+    <div class="qr-box">
+      <img src="gcash-qr.svg" alt="GCash QR (replace with merchant QR)" width="180" height="180">
+      <ol class="pay-steps">
+        <li>Scan ang GCash QR, magpadala ng <strong>₱149</strong>.</li>
+        <li>I-enter ang unlock code na matatanggap mo.</li>
+        <li>Download agad ang full version!</li>
+      </ol>
+    </div>
+    <div class="code-row">
+      <input id="codeInput" placeholder="Enter unlock code">
+      <button id="codeBtn" class="btn primary">Unlock</button>
+    </div>
+    <p class="code-msg" id="codeMsg"></p>
+    <div id="dlBox" class="dl-box hidden">
+      <a id="dlLink" class="btn primary big" href="#">⬇️ I-download ang NegosyoSheet (full)</a>
+      <p class="hint">I-save agad — ang link na ito ay para sayo lang.</p>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
